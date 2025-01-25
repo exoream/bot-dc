@@ -6,8 +6,7 @@ const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]
 });
 
-const API_BASE_URL = 'https://nyan.gozone.my.id/anime';
-
+const API_BASE_URL = process.env.API_BASE_URL;
 
 client.once('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
