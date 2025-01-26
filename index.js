@@ -1,5 +1,6 @@
 const { Client, GatewayIntentBits } = require('discord.js');
 const axios = require('axios');
+const express = require('express');
 require('dotenv').config();
 
 const client = new Client({
@@ -177,6 +178,10 @@ client.on('messageCreate', async (message) => {
 
 client.login(process.env.DISCORD_TOKEN);
 
-module.exports = (req, res) => {
-    res.status(200).send('Bot is running!');
-};
+app.get('/', (req, res) => {
+    res.send('Bot is running!');
+});
+
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
