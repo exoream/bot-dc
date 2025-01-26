@@ -3,6 +3,9 @@ const axios = require('axios');
 const express = require('express');
 require('dotenv').config();
 
+const app = express();
+const port = process.env.PORT || 3000;
+
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]
 });
