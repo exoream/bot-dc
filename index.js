@@ -175,3 +175,7 @@ client.on('messageCreate', async (message) => {
 
 
 client.login(process.env.DISCORD_TOKEN);
+
+module.exports = (req, res) => {
+    res.status(200).send('Bot is running!');
+};
