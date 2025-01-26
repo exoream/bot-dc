@@ -36,17 +36,17 @@ client.on('messageCreate', async (message) => {
                     return message.reply('Anime tidak ditemukan.');
                 }
     
-                
-                const embeds = animes.map((anime) => {
+                // Limit the number of embeds to 10
+                const embeds = animes.slice(0, 10).map((anime) => {
                     const genres = anime.genres ? anime.genres.join(', ') : 'N/A';
     
-                const description = `**Status**: ${anime.status}\n` +
+                    const description = `**Status**: ${anime.status}\n` +
                         `**Rating**: ${anime.rating}\n` +
                         `**Genres**: ${genres}\n` +
                         `**Anime ID**: ${anime.anime_id}\n` +
                         `**Nonton Disini**: [Klik untuk menonton](https://www.aninyan.com/anime/details/${anime.anime_id})`;
     
-                const footerText = '🌀 Anime Bot | Powered by Aninyan';
+                    const footerText = '🌀 Anime Bot | Powered by Aninyan';
     
                     return {
                         color: 0x0099ff,
