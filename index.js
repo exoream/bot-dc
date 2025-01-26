@@ -18,7 +18,7 @@ client.on('messageCreate', async (message) => {
 
     const args = message.content.slice(7).trim().split(' ');
     const command = args.shift().toLowerCase();
-
+    console.log(`Received command: ${command}`);
     try {
         if (command === 'search') {
             const query = args.join(' ');
@@ -32,6 +32,7 @@ client.on('messageCreate', async (message) => {
                 });
     
                 const animes = response.data.data;
+                console.log(`Received data: ${JSON.stringify(animes)}`);
                 if (!animes || animes.length === 0) {
                     return message.reply('Anime tidak ditemukan.');
                 }
